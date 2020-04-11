@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+    mysql:
+        image: mysql:5
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            # MYSQL_DATABASE: ${MYSQL_DATABASE}
+            # MYSQL_USER: ${MYSQL_USER}
+            # MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - ${DB_DIR}/mysql:/var/lib/mysql
+        ports:
+            - '43306:3306'
+        networks:
+            - otus_backend
+    # app:
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+    #     environment:
+    #         PORT: ${SERVER_PORT}
+    #         MODE: ${SERVER_MODE}
+    #     expose:
+    #         - ${SERVER_PORT}
+    #     volumes:
+    #         - ./logs:/logs
+    #     networks:
+    #         - backend
+    #     restart: always
+
+networks:
+    otus_backend:
+        external: true

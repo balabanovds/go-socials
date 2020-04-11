@@ -1,0 +1,15 @@
+{{ define "content" }}
+
+    <form class="form-signin" role="form" action="/users/new" method="post">
+        <h2 class="form-signin-heading text-center">
+            <i class="fa fa-comments-o">
+                Go-Socials
+            </i>
+        </h2>
+        <div class="lead text-center">Sign up for an account below</div>
+        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    </form>
+
+{{ end }}
